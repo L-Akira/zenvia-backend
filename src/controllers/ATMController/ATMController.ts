@@ -1,5 +1,4 @@
 import { IController, IRoutes, Methods } from "@shared/interfaces";import { ObjectValidator } from "@shared/providers";
-;
 import { Request, Response } from "express";
 import { RequestChecker, Withdrawer } from "./services";
 
