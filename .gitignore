@@ -1,0 +1,8 @@
+# dependencies
+/node_modules
+
+# misc
+npm-debug.log
+yarn-error.log
+testem.log
+/connect.lock
