@@ -67,3 +67,7 @@ Supondo que o exemplo acima tenha sido requerido na API, sua resposta então ser
 Onde em "cash" conterá os tipos de notas e suas respectivas quantidades no saque, neste caso, contém 1 nota de R$50, 1 nota de R$20 e 1 nota de R$10.
 
 Ja em "properties", são miscelaneas que contribuem para o entendimento do receptor dos dados
+
+### Testes 🧪
+
+Para executar os testes automatizados utilize o comando: ```$npm test``` ou ```$yarn test```
