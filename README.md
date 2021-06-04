@@ -60,7 +60,19 @@ Supondo que o exemplo acima tenha sido requerido na API, sua resposta então ser
 
 Onde em "cash" conterá os tipos de notas e suas respectivas quantidades no saque, neste caso, contém 1 nota de R$50, 1 nota de R$20 e 1 nota de R$10.
 
-Ja em "properties", são miscelaneas que contribuem para o entendimento do receptor dos dados
+Ja em "properties", são miscelaneas que contribuem para o entendimento do receptor dos dados.
+
+Em caso de erro será apresentado o seguinte JSON:
+
+```
+{
+  "message": "Something in the request is missing or is invalid",
+  "properties": {
+    "type": "BAD_REQUEST",
+    "code": 400
+  }
+}
+```
 
 ### Testes 🧪
 
