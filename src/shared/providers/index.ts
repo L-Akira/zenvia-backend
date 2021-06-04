@@ -1,1 +1,1 @@
-export { default as ObjectValidator } from './ObjectValidator'
+export { default as ObjectValidator } from './ObjectValidator';

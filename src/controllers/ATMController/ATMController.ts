@@ -18,21 +18,23 @@ export default class ATMController implements IController {
     }
 
     private async withdrawCash(request: Request, response: Response) {
-        
         const requestChecker = new RequestChecker(new ObjectValidator);
-        const isValidRequest = await requestChecker.execute(request.body);
+        const isValidRequest = await requestChecker.execute(request.query);
         
         if(!isValidRequest)
             return response
                 .status(400)
                 .json({ 
                     message: 'Something in the request is missing or is invalid',
-                    type: 'BAD_REQUEST',
-                    code: 400,
+                    properties: {
+                        type: 'BAD_REQUEST',
+                        code: 400,
+                    }
                 });
-
+        
         const withdrawer = new Withdrawer();
-        const cash = await withdrawer.execute(request.body.withdraw.amount);
+        const amount = Number(request.query.amount);
+        const cash = await withdrawer.execute(amount);
 
         return response
             .status(200)

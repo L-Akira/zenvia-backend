@@ -12,8 +12,10 @@ let path: string;
 
 let response = {
     message: "Something in the request is missing or is invalid",
-    type: "BAD_REQUEST",
-    code: 400
+    properties: {
+        type: 'BAD_REQUEST',
+        code: 400,
+    }
 }
 
 describe("Withdraw cash endpoint rejections tests", () => {
@@ -30,61 +32,33 @@ describe("Withdraw cash endpoint rejections tests", () => {
         path = '/atm/withdraw';
     });
 
-    it("Should reject request with no body;", (done) => {     
+    it("Should reject request with no value;", (done) => {     
         request(app)
         .get(path)
         .expect(400, response, done);
     });
 
     it("Should reject request with negative number;", (done) => {  
-        const body = {
-            withdraw: {
-                amount: -40,
-            }
-        }
-
         request(app)
-        .get(path)
-        .send(body)
+        .get(path + '?amount=-40')
         .expect(400, response, done);
     });
 
-    it("Should reject request with decimal number;", (done) => {  
-        const body = {
-            withdraw: {
-                amount: 80.5,
-            }
-        }
-
+    it("Should reject request with decimal number;", (done) => {    
         request(app)
-        .get(path)
-        .send(body)
+        .get(path + '?amount=80.5')
         .expect(400, response, done);
     });
 
     it("Should reject request with number not divisible by 10;", (done) => {  
-        const body = {
-            withdraw: {
-                amount: 2021,
-            }
-        }
-
         request(app)
-        .get(path)
-        .send(body)
+        .get(path + '?amount=2021')
         .expect(400, response, done);
     });
 
     it("Should reject request with string and other characters;", (done) => {  
-        const body = {
-            withdraw: {
-                amount: "$no number here!!!!",
-            }
-        }
-
         request(app)
-        .get(path)
-        .send(body)
+        .get(path + '?amount=$no number here!!!!')
         .expect(400, response, done);
     });
 })

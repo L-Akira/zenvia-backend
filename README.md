@@ -33,15 +33,9 @@ Após instalar as bibliotecas e frameworks nescessarios basta executar
 
 ### Rota 🎯
 
-Para excutar o saque de dinheiro como proposto no teste, utilize a rota [/atm/withdraw](), passando no corpo da requisição uma estrutura JSON, como exemplificado abaixo:
+Para excutar o saque de dinheiro como proposto no teste, utilize a rota [/atm/withdraw](), passando no query parameter da , como exemplificado abaixo:
 
-```
-{
-	"withdraw": {
-		"amount": 80
-	}
-}
-```
+[http://localhost:3333/atm/withdraw?amount=80]()
 
 Onde em "amount" será inserido o valor desejado.
 
