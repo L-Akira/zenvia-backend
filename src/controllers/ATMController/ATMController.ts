@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { RequestChecker, Withdrawer } from "./services";
 
 export default class ATMController implements IController {
-    public commomPath;
+    public commomPath: string;
     public routes: Array<IRoutes>;
 
     constructor() {
